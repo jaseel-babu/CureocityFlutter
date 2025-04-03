@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:cureocity_flutter_test/core/error/failure.dart';
 import 'package:cureocity_flutter_test/features/Home/data/data_sources/data_source.dart';
@@ -14,21 +13,22 @@ class GetCountryRepositoryImpl implements GetContryRepository {
     required this.dataSource,
   });
   @override
-  Future<Either<Failure, ResponseEntity>> getCountry() async {
-    try {
-     
-      final result = await dataSource.fetchCoutries();
-      log(result.exception.toString());
+Future<Either<Failure, ResponseEntity>> getCountry() async {
+  try {
+    final result = await dataSource.fetchCountries();
 
-      final res = ResponseModel.fromMap(result.data!);
-
-      return right(res);
-    } catch (e) {
-      return left(
-        Failure(
-         
-        ),
-      );
+    if (result == null) {
+      return left(Failure());
     }
+
+    //  Convert result to the correct type
+    final Map<String, dynamic> formattedResult = result.cast<String, dynamic>();
+
+    final res = ResponseModel.fromMap(formattedResult);
+    return right(res);
+  } catch (e) {
+    return left(Failure());
   }
+}
+
 }

@@ -29,12 +29,16 @@ class ResponseModel extends ResponseEntity {
     };
   }
 
-  factory ResponseModel.fromMap(Map<String, dynamic> map) {
-    return ResponseModel(
-      countries: List<CountriesModel>.from(
-          map['countries']?.map((x) => CountriesModel.fromMap(x))),
-    );
-  }
+ factory ResponseModel.fromMap(Map<String, dynamic> map) {
+ 
+
+  return ResponseModel(
+    countries: (map['countries'] as List<dynamic>?)
+        ?.map((x) => CountriesModel.fromMap(Map<String, dynamic>.from(x)))
+        .toList() ?? [],
+  );
+}
+
 }
 
 class CountriesModel extends CountriesEntity {

@@ -43,16 +43,13 @@ class _HomePageState extends State<HomePage> {
             }
           },
           builder: (context, state) {
-            print(state);
+            debugPrint(state.toString());
             if (state is LoadingState) {
-              return Container(
-                child: const Center(
-                    child: CircularProgressIndicator(
-                        valueColor:
-                            AlwaysStoppedAnimation<Color>(Colors.white))),
-              );
+              return const Center(
+                  child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white)));
             } else if (state is SuccessState) {
-              print(state.responseEntity.countries.length);
+              debugPrint(state.responseEntity.countries.length.toString());
               return ListView.builder(
                 itemCount: countryList.length,
                 padding: const EdgeInsets.all(20),
@@ -68,16 +65,21 @@ class _HomePageState extends State<HomePage> {
                             controller: searchController,
                             onChanged: (value) {
                               if (value.isNotEmpty) {
-                                setState(() {
-                                  countryList = state.responseEntity.countries
-                                      .where((element) =>
-                                          element.name.contains(value))
-                                      .toList();
-                                });
+                                setState(
+                                  () {
+                                    countryList = state.responseEntity.countries
+                                        .where((element) =>
+                                            element.name.contains(value))
+                                        .toList();
+                                  },
+                                );
                               } else {
-                                setState(() {
-                                  countryList = state.responseEntity.countries;
-                                });
+                                setState(
+                                  () {
+                                    countryList =
+                                        state.responseEntity.countries;
+                                  },
+                                );
                               }
                             },
                           ),
