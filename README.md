@@ -23,3 +23,17 @@ lib/
 │── domain/             
 │── presentation/        
 │── main.dart            
+
+## 📖 Research & References
+I followed official documentation, community discussions, and leveraged GPT-powered assistance for implementing:
+
+- **🗄️ Hive** for local storage
+- **🔗 GraphQL integration**
+- **🔧 GetIt** for dependency injection
+
+## 🚀 Features
+- ✔️ **Clean Architecture**  
+- ✔️ **GraphQL API integration**  
+- ✔️ **Efficient state management using BLoC**  
+
+This ensures the project is **scalable, maintainable, and optimized for performance**.
