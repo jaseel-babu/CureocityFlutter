@@ -15,14 +15,6 @@ Develop a **Flutter** application that fetches and displays a list of countries 
 - ✅ **Pull-to-Refresh** – Allows users to refresh country data manually.  
 - ✅ **Search Functionality** – Enables users to find specific countries easily.  
 
-## 📂 Project Structure (Clean Architecture)  
-```bash
-lib/
-│── core/               
-│── data/                  
-│── domain/             
-│── presentation/        
-│── main.dart            
 
 ## 📖 Research & References
 I followed official documentation, community discussions, and leveraged GPT-powered assistance for implementing:
@@ -37,3 +29,12 @@ I followed official documentation, community discussions, and leveraged GPT-powe
 - ✔️ **Efficient state management using BLoC**  
 
 This ensures the project is **scalable, maintainable, and optimized for performance**.
+
+## 📂 Project Structure (Clean Architecture)  
+```bash
+lib/
+│── core/               
+│── data/                  
+│── domain/             
+│── presentation/        
+│── main.dart            
